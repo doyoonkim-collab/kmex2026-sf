@@ -1097,13 +1097,20 @@ nav{
 <script>
 lucide.createIcons();
 function openModal(co){
-  document.getElementById('m-ttl').textContent=co?co.split('—')[0].trim():'Book a Session';
-  if(co){const s=document.getElementById('f6');for(let i=0;i<s.options.length;i++){if(s.options[i].text.includes(co.split('—')[0].trim().split(' ')[0])){s.selectedIndex=i;break;}}}
+  document.getElementById('overlay').classList.add('active');
+  const sw=window.innerWidth-document.documentElement.clientWidth;
+  document.body.style.paddingRight=sw+'px';
+  document.body.style.overflow='hidden';
+}}}
   document.getElementById('mform').style.display='block';
   document.getElementById('mok').style.display='none';
   document.getElementById('overlay').classList.add('active');
 }
-function closeModal(){document.getElementById('overlay').classList.remove('active');}
+function closeModal(){
+  document.getElementById('overlay').classList.remove('active');
+  document.body.style.paddingRight='';
+  document.body.style.overflow='';
+}
 function submitForm(){
   const v=id=>document.getElementById(id).value.trim();
   if(!v('f1')||!v('f3')||!v('f5')){alert('Please fill in name, company, and email.');return;}
