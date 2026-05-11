@@ -1083,61 +1083,14 @@ nav{
 <!-- MODAL -->
 <div class="overlay" id="overlay">
   <div class="modal">
-    <div id="mform">
-      <div class="modal-hd">
-        <div>
-          <div class="m-ttl" id="m-ttl">Book a Session</div>
-          <div class="m-sub">San Francisco · June 25 · Confirmed within 48hrs</div>
-        </div>
-        <button class="m-x" onclick="closeModal()"><i data-lucide="x" style="width:15px;height:15px"></i></button>
-      </div>
-      <div class="modal-bd">
-        <div class="f-row">
-          <div class="fg"><label class="fl">First Name</label><input class="fi" id="f1" placeholder="John"></div>
-          <div class="fg"><label class="fl">Last Name</label><input class="fi" id="f2" placeholder="Smith"></div>
-        </div>
-        <div class="fg"><label class="fl">Company</label><input class="fi" id="f3" placeholder="Your company"></div>
-        <div class="fg"><label class="fl">Title</label><input class="fi" id="f4" placeholder="Automation Engineer, Procurement Manager…"></div>
-        <div class="fg"><label class="fl">Work Email</label><input class="fi" type="email" id="f5" placeholder="you@company.com"></div>
-        <div class="fg">
-          <label class="fl">Company of Interest</label>
-          <select class="fs" id="f6">
-            <option value="">Select…</option>
-            <option>UND Co. — Wireless Tool Changer</option>
-            <option>Lubchem — Robot Lubricants</option>
-            <option>Daedong Metals — Robot Cast Parts</option>
-            <option>Yongjin — Industrial Robot Frames</option>
-            <option>Yedo Automation — Press Transfer</option>
-            <option>LPR Korea — Turnkey Automation</option>
-            <option>WOWTECH — EV & Hybrid Parts</option>
-            <option>Jeonwoo Precision — Deep Drawing</option>
-            <option>CANLAB — Drone Cameras</option>
-            <option>RFON — Counter-UAS Systems</option>
-            <option>Multiple companies</option>
-          </select>
-        </div>
-        <div class="fg">
-          <label class="fl">Preferred Time Slot</label>
-          <select class="fs" id="f7">
-            <option value="">Select a time…</option>
-            <option>Round 1 — 9:30 AM</option>
-            <option>Round 2 — 10:10 AM</option>
-            <option>Round 3 — 10:50 AM</option>
-            <option>Round 4 — 11:30 AM</option>
-            <option>Round 5 — 1:30 PM</option>
-            <option>Round 6 — 2:10 PM</option>
-            <option>Round 7 — 2:50 PM</option>
-            <option>No preference</option>
-          </select>
-        </div>
-        <button class="btn-submit" onclick="submitForm()">Submit</button>
-      </div>
+    <div style="padding:16px 20px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--gray3)">
+      <div style="font-size:15px;font-weight:600;color:var(--black);letter-spacing:-.01em" id="m-ttl">Book a Session</div>
+      <button class="m-x" onclick="closeModal()"><i data-lucide="x" style="width:15px;height:15px"></i></button>
     </div>
-    <div class="modal-ok" id="mok">
-      <div class="ok-ico"><i data-lucide="check" style="width:22px;height:22px"></i></div>
-      <div class="ok-ttl">Request Received</div>
-      <div class="ok-sub">We'll reach out to <span class="ok-em" id="ok-em"></span> within 48 hours with your confirmed slot and company briefing materials.</div>
-    </div>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdQuCfvsY7dJL_g2WxanXMeSBERB8seBP169KTGdxAJ0LhNbw/viewform?embedded=true"
+      width="100%" height="560" frameborder="0"
+      style="display:block;border:none;">
+    </iframe>
   </div>
 </div>
 
