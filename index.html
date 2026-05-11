@@ -375,7 +375,7 @@ nav{
 
   <div class="hero-eyebrow">Private B2B Sourcing Event · San Francisco, California</div>
   <h1>Meet Korea's Best<br>Manufacturers.</h1>
-  <p class="hero-sub">Pre-scheduled 30-minute briefings with Korea's leading robotics, automation, and automotive suppliers.</p>
+  <p class="hero-sub">Pre-scheduled 30-minute briefings with Korea\'s leading robotics, automation, and automotive suppliers.</p>
   <p style="font-size:30px;font-weight:700;color:var(--black);letter-spacing:-.03em;margin:24px 0 28px;text-shadow:0 0 40px rgba(0,113,227,0.25),0 0 80px rgba(0,113,227,0.12)">San Francisco, CA · June 25, 2026</p>
   <div class="hero-actions">
     <button class="btn-blue" onclick="document.getElementById('co-section').scrollIntoView({behavior:'smooth'})">
@@ -408,7 +408,7 @@ nav{
 <div class="venue-strip">
   <div class="venue-info">
     <h3>Private Hotel · San Francisco, CA</h3>
-    <p>June 23, 2026 · 9:00 AM – 5:00 PM PDT</p>
+    <p>June 25, 2026 · 9:00 AM – 5:00 PM PDT</p>
     <div class="venue-note">Running during Automate 2026 week — no extra travel needed</div>
   </div>
 </div>
@@ -1082,14 +1082,13 @@ nav{
 
 <!-- MODAL -->
 <div class="overlay" id="overlay">
-  <div class="modal">
-    <div style="padding:16px 20px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--gray3)">
-      <div style="font-size:15px;font-weight:600;color:var(--black);letter-spacing:-.01em" id="m-ttl">Book a Session</div>
-      <button class="m-x" onclick="closeModal()"><i data-lucide="x" style="width:15px;height:15px"></i></button>
+  <div class="modal" style="max-width:520px;width:100%;border-radius:20px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,0.25)">
+    <div style="padding:16px 20px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--gray3);background:var(--white)">
+      <div style="font-size:15px;font-weight:600;color:var(--black);letter-spacing:-.01em">Book a Session</div>
+      <button onclick="closeModal()" style="background:rgba(0,0,0,0.06);border:none;cursor:pointer;display:flex;align-items:center;padding:7px;border-radius:50%"><i data-lucide="x" style="width:15px;height:15px"></i></button>
     </div>
     <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdQuCfvsY7dJL_g2WxanXMeSBERB8seBP169KTGdxAJ0LhNbw/viewform?embedded=true"
-      width="100%" height="560" frameborder="0"
-      style="display:block;border:none;">
+      width="100%" height="580" frameborder="0" style="display:block;border:none;background:var(--white)">
     </iframe>
   </div>
 </div>
@@ -1097,10 +1096,10 @@ nav{
 <script>
 lucide.createIcons();
 function openModal(co){
-  document.getElementById('overlay').classList.add('active');
   const sw=window.innerWidth-document.documentElement.clientWidth;
   document.body.style.paddingRight=sw+'px';
   document.body.style.overflow='hidden';
+  document.getElementById('overlay').classList.add('active');
 }}}
   document.getElementById('mform').style.display='block';
   document.getElementById('mok').style.display='none';
@@ -1120,7 +1119,7 @@ function submitForm(){
   const s=encodeURIComponent('[KMEX 2026 SF] Session Request — '+(v('f6')||'Multiple'));
   const t=document.getElementById('f7').value;
 const b=encodeURIComponent(`Name: ${v('f1')} ${v('f2')}\nCompany: ${v('f3')}\nTitle: ${v('f4')}\nEmail: ${v('f5')}\nInterest: ${v('f6')}\nPreferred Time: ${t||'No preference'}`);
-  setTimeout(()=>{window.location.href=`mailto:doyoon.kim@cncare.co.kr?cc=doojin.kwon@cncare.co.kr&subject=${s}&body=${b}`;},900);
+  setTimeout(()=>{window.location.href=`mailto:doyoon.kim@cncare.co.kr?subject=${s}&body=${b}`;},900);
 }
 function toggleExpand(key){
   const panel=document.getElementById('expand-'+key);
