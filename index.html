@@ -1095,45 +1095,34 @@ nav{
 
 <script>
 lucide.createIcons();
+
 function openModal(co){
   const sw=window.innerWidth-document.documentElement.clientWidth;
   document.body.style.paddingRight=sw+'px';
   document.body.style.overflow='hidden';
   document.getElementById('overlay').classList.add('active');
-}}}
-  document.getElementById('mform').style.display='block';
-  document.getElementById('mok').style.display='none';
-  document.getElementById('overlay').classList.add('active');
 }
+
 function closeModal(){
   document.getElementById('overlay').classList.remove('active');
   document.body.style.paddingRight='';
   document.body.style.overflow='';
 }
-function submitForm(){
-  const v=id=>document.getElementById(id).value.trim();
-  if(!v('f1')||!v('f3')||!v('f5')){alert('Please fill in name, company, and email.');return;}
-  document.getElementById('ok-em').textContent=v('f5');
-  document.getElementById('mform').style.display='none';
-  document.getElementById('mok').style.display='block';
-  const s=encodeURIComponent('[KMEX 2026 SF] Session Request — '+(v('f6')||'Multiple'));
-  const t=document.getElementById('f7').value;
-const b=encodeURIComponent(`Name: ${v('f1')} ${v('f2')}\nCompany: ${v('f3')}\nTitle: ${v('f4')}\nEmail: ${v('f5')}\nInterest: ${v('f6')}\nPreferred Time: ${t||'No preference'}`);
-  setTimeout(()=>{window.location.href=`mailto:doyoon.kim@cncare.co.kr?subject=${s}&body=${b}`;},900);
-}
+
 function toggleExpand(key){
   const panel=document.getElementById('expand-'+key);
   const card=document.getElementById('card-'+key);
   const isOpen=panel.classList.contains('open');
   document.querySelectorAll('.co-expand').forEach(p=>p.classList.remove('open'));
-  document.querySelectorAll('.co-card').forEach(c=>{c.style.borderRadius='';c.style.boxShadow='';});
+  document.querySelectorAll('.co-card').forEach(c=>c.classList.remove('active-card'));
   if(!isOpen){
     panel.classList.add('open');
-    card.style.borderRadius='18px 18px 0 0';
+    card.classList.add('active-card');
     lucide.createIcons();
-    setTimeout(()=>card.scrollIntoView({behavior:'smooth',block:'start'}),50);
+    setTimeout(()=>card.scrollIntoView({behavior:'smooth',block:'start'}),60);
   }
 }
+
 function doFilter(t,btn){
   document.querySelectorAll('.pill').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
@@ -1141,10 +1130,15 @@ function doFilter(t,btn){
     w.style.display=(t==='all'||w.dataset.track===t)?'':'none';
   });
   document.querySelectorAll('.co-expand').forEach(p=>p.classList.remove('open'));
-  document.querySelectorAll('.co-card').forEach(c=>c.style.borderRadius='');
+  document.querySelectorAll('.co-card').forEach(c=>c.classList.remove('active-card'));
 }
-document.getElementById('overlay').addEventListener('click',e=>{if(e.target.id==='overlay')closeModal();});
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+
+document.getElementById('overlay').addEventListener('click',function(e){
+  if(e.target.id==='overlay') closeModal();
+});
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape') closeModal();
+});
 </script>
 </body>
 </html>
