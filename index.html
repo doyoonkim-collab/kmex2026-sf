@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>KMEX 2026 — Korea Manufacturing Excellence · San Francisco</title>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<style>
+:root {
+  --f: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+  --bg:    #F5F5F7;
+  --white: #FFFFFF;
+  --black: #1D1D1F;
+  --gray1: #6E6E73;
+  --gray2: #86868B;
+  --gray3: #D2D2D7;
+  --blue:  #0071E3;
+  --blue2: #0077ED;
+  --green: #1DB954;
+  --amber: #FF9F0A;
+  --red:   #FF453A;
+  --r:     18px;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--black);font-family:var(--f);overflow-x:hidden}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  height:48px;
+  background:rgba(245,245,247,0.85);
+  backdrop-filter:saturate(180%) blur(20px);
+  -webkit-backdrop-filter:saturate(180%) blur(20px);
+  border-bottom:1px solid rgba(0,0,0,0.08);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 22px;
+}
+.nav-logo{
+  font-size:17px;font-weight:600;color:var(--black);
+  text-decoration:none;letter-spacing:-.01em;
+}
+.nav-r{display:flex;align-items:center;gap:16px}
+.nav-live{
+  font-size:12px;font-weight:500;color:var(--gray1);
+  display:flex;align-items:center;gap:5px;
+}
+.live-dot{width:6px;height:6px;background:var(--green);border-radius:50%;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.btn-nav{
+  background:var(--blue);color:#fff;border:none;
+  padding:7px 16px;border-radius:980px;cursor:pointer;
+  font-family:var(--f);font-size:13px;font-weight:500;
+  letter-spacing:-.01em;transition:background .2s;
+}
+.btn-nav:hover{background:var(--blue2)}
+
+/* ── HERO ── */
+.hero{
+  padding:120px 22px 80px;
+  text-align:center;
+  max-width:800px;margin:0 auto;
+}
+
+
+
+.hero-eyebrow{
+  font-size:17px;font-weight:500;color:var(--blue);
+  margin-bottom:8px;letter-spacing:-.01em;
+}
+.hero h1{
+  font-size:clamp(48px,7vw,80px);font-weight:700;
+  letter-spacing:-.03em;line-height:1.05;
+  color:var(--black);margin-bottom:20px;
+}
+.hero-sub{
+  font-size:21px;font-weight:400;color:var(--gray1);
+  line-height:1.55;letter-spacing:-.01em;
+  max-width:600px;margin:0 auto 40px;
+}
+.hero-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:64px}
+.btn-blue{
+  background:var(--blue);color:#fff;border:none;
+  padding:14px 28px;border-radius:980px;cursor:pointer;
+  font-family:var(--f);font-size:17px;font-weight:500;
+  letter-spacing:-.01em;transition:background .2s;
+  display:inline-flex;align-items:center;gap:6px;
+}
+.btn-blue:hover{background:var(--blue2)}
+.btn-ghost{
+  background:transparent;color:var(--blue);border:none;
+  padding:14px 24px;border-radius:980px;cursor:pointer;
+  font-family:var(--f);font-size:17px;font-weight:500;
+  letter-spacing:-.01em;transition:all .2s;
+  display:inline-flex;align-items:center;gap:4px;
+}
+.btn-ghost:hover{background:rgba(0,113,227,0.07)}
+
+/* Stats row */
+.stats-row{
+  display:flex;justify-content:center;gap:0;
+  background:var(--white);border-radius:var(--r);
+  overflow:hidden;margin:0 auto;max-width:700px;
+}
+.stat-item{
+  flex:1;padding:24px 20px;
+  border-right:1px solid var(--gray3);
+  text-align:center;
+}
+.stat-item:last-child{border-right:none}
+.stat-val{
+  font-size:36px;font-weight:700;letter-spacing:-.03em;
+  color:var(--black);line-height:1;margin-bottom:4px;
+}
+.stat-key{font-size:13px;font-weight:500;color:var(--gray2)}
+.stat-note{font-size:12px;color:var(--blue);font-weight:500;margin-top:2px}
+
+/* ── SECTION ── */
+.section{padding:32px 22px 80px;max-width:1200px;margin:0 auto}
+.section-title{
+  font-size:48px;font-weight:700;letter-spacing:-.03em;
+  line-height:1.08;color:var(--black);margin-bottom:8px;
+}
+.section-sub{
+  font-size:21px;font-weight:400;color:var(--gray1);
+  letter-spacing:-.01em;margin-bottom:40px;
+}
+
+/* Filter */
+.filter-pills{
+  display:flex;gap:8px;flex-wrap:wrap;margin-bottom:32px;
+}
+.pill{
+  background:var(--white);color:var(--black);border:none;
+  padding:8px 18px;border-radius:980px;cursor:pointer;
+  font-family:var(--f);font-size:15px;font-weight:500;
+  letter-spacing:-.01em;transition:all .2s;
+  box-shadow:0 0 0 1px var(--gray3);
+}
+.pill:hover{box-shadow:0 0 0 1px #888}
+.pill.active{
+  background:var(--black);color:#fff;
+  box-shadow:0 0 0 1px var(--black);
+}
+
+/* Company cards */
+.co-grid{display:flex;flex-direction:column;gap:12px}
+
+.co-card{
+  background:var(--white);border-radius:var(--r);overflow:hidden;
+  transition:transform .3s ease, box-shadow .3s ease;
+  cursor:pointer;
+}
+.co-card:hover{
+  box-shadow:0 4px 20px rgba(0,0,0,0.12);
+  transform:translateY(-1px);
+}
+.co-card.hidden{display:none}
+.co-card.open{border-radius:var(--r) var(--r) 0 0}
+
+.co-main{
+  display:grid;
+  grid-template-columns:260px 1fr 200px;
+  padding:0;
+}
+
+/* Card left */
+.co-l{
+  padding:32px 28px;
+  border-right:1px solid var(--gray3);
+  display:flex;flex-direction:column;gap:4px;
+  position:relative;overflow:hidden;
+}
+
+.co-index{font-size:12px;font-weight:600;color:var(--gray2);letter-spacing:.02em;margin-bottom:8px}
+.co-track{
+  display:inline-block;font-size:11px;font-weight:600;
+  letter-spacing:.02em;text-transform:uppercase;
+  padding:3px 9px;border-radius:4px;margin-bottom:10px;width:fit-content;
+}
+.t-a{background:#E3F0FF;color:#004AAD}
+.t-b{background:#E3F5E8;color:#1A6B2B}
+.t-c{background:#FFF0E3;color:#A03000}
+.co-name{
+  font-size:20px;font-weight:700;letter-spacing:-.02em;
+  color:var(--black);line-height:1.15;
+}
+.co-name-kr{font-size:12px;font-weight:400;color:var(--gray2);margin-top:2px}
+.co-cat{font-size:13px;font-weight:500;color:var(--gray1);margin-top:12px}
+
+/* Card mid */
+.co-m{
+  padding:32px 36px;
+  display:flex;flex-direction:column;justify-content:center;
+}
+.co-prods{list-style:none;display:flex;flex-direction:column;gap:11px}
+.co-prods li{
+  font-size:15px;font-weight:400;color:var(--black);
+  line-height:1.5;display:flex;align-items:flex-start;gap:8px;letter-spacing:-.01em;
+}
+.co-prods li svg{flex-shrink:0;margin-top:3px;color:var(--blue)}
+
+/* Card right */
+.co-r{
+  padding:32px 28px;
+  border-left:1px solid var(--gray3);
+  display:flex;flex-direction:column;justify-content:space-between;
+}
+.co-refs-lbl{font-size:11px;font-weight:600;color:var(--gray2);letter-spacing:.03em;text-transform:uppercase;margin-bottom:8px}
+.co-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:20px}
+.co-tag{
+  background:var(--bg);border:1px solid var(--gray3);
+  padding:3px 9px;border-radius:5px;
+  font-size:12px;font-weight:500;color:var(--black);
+}
+.co-slot{
+  font-size:13px;font-weight:600;letter-spacing:-.01em;
+  display:flex;align-items:center;gap:5px;margin-bottom:8px;
+}
+.sdot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+.s-open{color:var(--green)}
+.s-few{color:var(--amber)}
+.s-hot{color:var(--red)}
+.btn-session{
+  width:100%;background:var(--black);color:#fff;border:none;
+  padding:10px;border-radius:980px;cursor:pointer;
+  font-family:var(--f);font-size:14px;font-weight:500;
+  letter-spacing:-.01em;transition:background .2s;
+}
+.btn-session:hover{background:#3a3a3c}
+
+
+/* ── EXPAND PANEL ── */
+.co-expand{
+  display:none;
+  background:#FAFAFA;
+  border:1px solid var(--gray3);
+  border-top:none;
+  border-radius:0 0 var(--r) var(--r);
+  overflow:hidden;
+}
+.co-expand.open{display:grid;grid-template-columns:1fr 240px}
+.ex-l{padding:32px 36px;border-right:1px solid var(--gray3)}
+.ex-r{padding:32px 28px;display:flex;flex-direction:column;gap:10px}
+.ex-title{font-size:13px;font-weight:600;color:var(--gray2);letter-spacing:.02em;text-transform:uppercase;margin-bottom:16px}
+.ex-prods{list-style:none;display:flex;flex-direction:column;gap:16px}
+.ex-prods li{padding-bottom:16px;border-bottom:1px solid var(--gray3)}
+.ex-prods li:last-child{border-bottom:none;padding-bottom:0}
+.ex-pname{font-size:16px;font-weight:600;color:var(--black);letter-spacing:-.01em;margin-bottom:4px}
+.ex-pdesc{font-size:14px;font-weight:400;color:var(--gray1);line-height:1.6;letter-spacing:-.01em}
+.ex-specs{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
+.ex-spec{
+  background:var(--white);border:1px solid var(--gray3);
+  padding:2px 8px;border-radius:4px;
+  font-size:12px;font-weight:500;color:var(--black);
+}
+.ex-dl{
+  display:flex;align-items:center;gap:10px;
+  background:var(--white);border:1px solid var(--gray3);border-radius:10px;
+  padding:12px 14px;cursor:pointer;text-decoration:none;
+  transition:border-color .2s;
+}
+.ex-dl:hover{border-color:#888}
+.ex-dl svg{color:var(--gray1);flex-shrink:0}
+.ex-dl-name{font-size:13px;font-weight:600;color:var(--black);letter-spacing:-.01em}
+.ex-dl-sub{font-size:11px;color:var(--gray2);margin-top:1px}
+.ex-book{
+  width:100%;background:var(--blue);color:#fff;border:none;
+  padding:12px;border-radius:980px;cursor:pointer;
+  font-family:var(--f);font-size:15px;font-weight:500;
+  letter-spacing:-.01em;transition:background .2s;
+}
+.ex-book:hover{background:#3a3a3c}
+
+.ex-close{
+  width:100%;background:transparent;color:var(--gray1);
+  border:1px solid var(--gray3);border-radius:980px;
+  padding:10px;cursor:pointer;
+  font-family:var(--f);font-size:13px;font-weight:500;
+  transition:all .2s;display:flex;align-items:center;justify-content:center;gap:5px;
+}
+.ex-close:hover{border-color:var(--black);color:var(--black)}
+
+/* ── VENUE STRIP ── */
+.venue-strip{
+  background:var(--white);border-radius:var(--r);
+  padding:56px 64px;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:20px;
+  max-width:1200px;margin:0 auto 32px;
+}
+.venue-info h3{font-size:36px;font-weight:700;letter-spacing:-.03em;margin-bottom:10px}
+.venue-info p{font-size:20px;color:var(--gray1);letter-spacing:-.01em}
+.venue-note{font-size:15px;color:var(--blue);font-weight:500;margin-top:6px}
+
+/* ── MODAL ── */
+.overlay{
+  position:fixed;inset:0;background:rgba(0,0,0,0.4);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  z-index:200;display:none;align-items:center;justify-content:center;padding:24px;
+}
+.overlay.active{display:flex}
+.modal{
+  background:var(--white);border-radius:20px;
+  width:100%;max-width:440px;overflow:hidden;
+  box-shadow:0 24px 60px rgba(0,0,0,0.3);
+}
+.modal-hd{
+  padding:28px 28px 0;
+  display:flex;justify-content:space-between;align-items:flex-start;
+}
+.m-ttl{font-size:22px;font-weight:700;letter-spacing:-.02em;color:var(--black);margin-bottom:3px}
+.m-sub{font-size:14px;color:var(--gray1);letter-spacing:-.01em}
+.m-x{
+  background:rgba(0,0,0,0.06);border:none;cursor:pointer;
+  color:var(--black);display:flex;align-items:center;padding:7px;border-radius:50%;
+  transition:background .15s;margin-top:-4px;
+}
+.m-x:hover{background:rgba(0,0,0,0.1)}
+.modal-bd{padding:20px 28px 28px}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.fg{margin-bottom:12px}
+.fl{display:block;font-size:12px;font-weight:600;color:var(--black);margin-bottom:5px;letter-spacing:-.01em}
+.fi,.fs{
+  width:100%;background:rgba(0,0,0,0.04);border:1px solid rgba(0,0,0,0.1);
+  border-radius:10px;padding:10px 12px;
+  font-size:15px;font-family:var(--f);color:var(--black);outline:none;
+  transition:border-color .15s;letter-spacing:-.01em;
+}
+.fi:focus,.fs:focus{border-color:var(--blue);background:var(--white)}
+.fi::placeholder{color:var(--gray2)}
+.fs option{background:var(--white)}
+.btn-submit{
+  width:100%;background:var(--blue);color:#fff;border:none;
+  padding:13px;border-radius:980px;cursor:pointer;
+  font-family:var(--f);font-size:17px;font-weight:500;
+  letter-spacing:-.01em;transition:background .2s;margin-top:4px;
+}
+.btn-submit:hover{background:var(--blue2)}
+.modal-ok{padding:40px 28px;text-align:center;display:none}
+.ok-ico{
+  width:56px;height:56px;background:#E3F5E8;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 16px;color:#1A6B2B;
+}
+.ok-ttl{font-size:22px;font-weight:700;letter-spacing:-.02em;margin-bottom:8px}
+.ok-sub{font-size:15px;color:var(--gray1);line-height:1.6;letter-spacing:-.01em}
+.ok-em{color:var(--blue);font-weight:600}
+
+@media(max-width:900px){
+  .co-main,.co-expand.open{grid-template-columns:1fr}
+  .co-l,.co-r,.ex-l,.ex-r{border:none;padding:20px}
+  .co-m{padding:0 20px 20px}
+  .stats-row{flex-wrap:wrap}
+  .stat-item{min-width:140px}
+  .f-row{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">KMEX 2026</a>
+  <div class="nav-r">
+    <div class="nav-live"><span class="live-dot"></span>San Francisco · Jun 25</div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+
+  <!-- 회사 카드 슬라이드 배경 -->
+  
+
+  <div class="hero-eyebrow">Private B2B Sourcing Event · San Francisco, California</div>
+  <h1>Meet Korea's Best<br>Manufacturers.</h1>
+  <p class="hero-sub">Pre-scheduled 30-minute briefings with Korea's leading robotics, automation, and automotive suppliers — in Chicago · June 25, 2026.</p>
+  <div class="hero-actions">
+    <button class="btn-blue" onclick="document.getElementById('co-section').scrollIntoView({behavior:'smooth'})">
+      View Companies <i data-lucide="chevron-down" style="width:16px;height:16px"></i>
+    </button>
+  </div>
+  <div class="stats-row">
+    <div class="stat-item">
+      <div class="stat-val">10</div>
+      <div class="stat-key">Companies</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-val">7</div>
+      <div class="stat-key">Rounds</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-val">30</div>
+      <div class="stat-key">Min / Session</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-val" style="font-size:28px">Free</div>
+      <div class="stat-key">To Attend</div>
+      <div class="stat-note" style="color:var(--gray1)">No registration fee</div>
+    </div>
+  </div>
+</section>
+
+<!-- VENUE -->
+<div style="padding:0 22px">
+<div class="venue-strip">
+  <div class="venue-info">
+    <h3>Private Hotel · San Francisco, CA</h3>
+    <p>June 23, 2026 · 9:00 AM – 5:00 PM PDT</p>
+    <div class="venue-note">Running during Automate 2026 week — no extra travel needed</div>
+  </div>
+</div>
+</div>
+
+<!-- COMPANIES -->
+<div class="section" id="co-section">
+  <div class="section-title">10 Companies.<br>3 Tracks.</div>
+  <div class="section-sub">Click any company to see full product details.</div>
+
+  <div class="filter-pills">
+    <button class="pill active" onclick="doFilter('all',this)">All (10)</button>
+    <button class="pill" onclick="doFilter('a',this)">Robotics & Smart Factory</button>
+    <button class="pill" onclick="doFilter('b',this)">Tier-1 Automotive</button>
+    <button class="pill" onclick="doFilter('c',this)">Defense & Sensing</button>
+  </div>
+
+  <div class="co-grid">
+
+    <!-- UND -->
+    <div class="co-wrap" data-track="a" id="wrap-und">
+    <div class="co-card" id="card-und" onclick="toggleExpand('und')">
+      <div class="co-main">
+        <div class="co-l">
+          <div>
+            <div class="co-index">01</div>
+            <div class="co-track t-a">Robotics & Smart Factory</div>
+            <div class="co-name">UND Co., Ltd.</div>
+            <div class="co-name-kr">주식회사 유엔디</div>
+          </div>
+          <div class="co-cat">Wireless Robot Automation</div>
+        </div>
+        <div class="co-m">
+          <ul class="co-prods">
+            <li><i data-lucide="arrow-right" style="width:14px;height:14px"></i>World's first fully wireless automatic tool changer — zero cables, zero air lines</li>
+            <li><i data-lucide="arrow-right" style="width:14px;height:14px"></i>High-speed magnetic gripper · ±0.05mm repeatability</li>
+            <li><i data-lucide="arrow-right" style="width:14px;height:14px"></i>CE / FCC / KC certified · 3yr Korea Robot Company of the Year</li>
+          </ul>
+        </div>
+        <div class="co-r">
+          <div>
+            <div class="co-refs-lbl">Key Customers</div>
+            <div class="co-tags">
+              <span class="co-tag">Hyundai</span><span class="co-tag">Kia</span><span class="co-tag">Samsung</span><span class="co-tag">UR+</span>
+            </div>
+          </div>
+          <div>
+            <div class="co-slot s-open"><span class="sdot"></span>Available</div>
+            <button class="btn-session" onclick="event.stopPropagation();openModal('UND Co. — Wireless Tool Changer')">Book Session</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="co-expand" id="expand-und">
+      <div class="ex-l">
+        <div class="ex-title">Products & Specifications</div>
+        <ul class="ex-prods">
+          <li>
+            <div class="ex-pname">Robot Automatic Tool Changer (Magbot)</div>
+            <div class="ex-pdesc">World's first fully wireless ATC — no external air or communication cables. Ultra-fast switching magnetic technology. Compatible with Universal Robots (UR+), Doosan, Hanwha. Positioning repeatability ±0.05mm.</div>
+            <div class="ex-specs"><span class="ex-spec">CE Certified</span><span class="ex-spec">FCC Certified</span><span class="ex-spec">±0.05mm</span><span class="ex-spec">OEM/ODM</span></div>
+          </li>
+          <li>
+            <div class="ex-pname">Robot Magnetic Gripper</div>
+            <div class="ex-pdesc">High-speed magnetic gripper for ferromagnetic workpieces. Same core switching magnetic technology. Custom payload configurations available for automotive, electronics manufacturing.</div>
+            <div class="ex-specs"><span class="ex-spec">CE Certified</span><span class="ex-spec">Custom Payload</span><span class="ex-spec">High-Speed</span><span class="ex-spec">OEM/ODM</span></div>
+          </li>
+        </ul>
+      </div>
+      <div class="ex-r">
+        <div class="ex-title">Materials</div>
+        <a class="ex-dl" href="#" onclick="return false">
+          <i data-lucide="file-text" style="width:18px;height:18px"></i>
+          <div>
+            <div class="ex-dl-name">Magbot Product Catalog</div>
+            <div class="ex-dl-sub">PDF — Available at session</div>
+          </div>
+          <i data-lucide="download" style="width:14px;height:14px"></i>
+        </a>
+        <button class="ex-book" onclick="openModal('UND Co. — Wireless Tool Changer')">Book a Session</button>
+        <button class="ex-close" onclick="toggleExpand('und')"><i data-lucide="chevron-up" style="width:13px;height:13px"></i>Close</button>
+      </div>
+    </div>
+    </div>
+
+    <!-- LUBCHEM -->
+    <div class="co-wrap" data-track="a" id="wrap-lubchem">
+    <div class="co-card" id="card-lubchem" onclick="toggleExpand('lubchem')">
+      <div class="co-main">
+        <div class="co-l">
+          <div>
+            <div class="co-index">02</div>
+            <div class="co-track t-a">Robotics & Smart Factory</div>
+            <div class="co-name">Lubchem Co., Ltd.</div>
+            <div class="co-name-kr">루브캠코리아</div>
+          </div>
+          <div class="co-cat">Industrial Lubricants · MRO</div>
+        </div>
+        <div class="co-m">
+          <ul class="co-prods">
+            <li><i data-lucide="arrow-right" style="width:14px;height:14px"></i>Precision grease for robot reducers & gear actuators</li>
+            <li><i data-lucide="arrow-right" style="width:14px;height:14px"></i>Approved lubricant for Hyundai MobED logistics robots</li>
+            <li><i data-lucide="arrow-right" style="width:14px;height:14px"></i>IATF 16949 · ISO 9001/14001 · NSF H1 · Halal certified</li>
+          </ul>
+        </div>
+        <div class="co-r">
+          <div>
+            <div class="co-refs-lbl">Key Customers</div>
+            <div class="co-tags">
+              <span class="co-tag">POSCO</span><span class="co-tag">Hyundai</span><span class="co-tag">SKF</span><span class="co-tag">Schaeffler</span>
+            </div>
+          </div>
+          <div>
+            <div class="co-slot s-open"><span class="sdot"></span>Available</div>
+            <button class="btn-session" onclick="event.stopPropagation();openModal('Lubchem — Robot Lubricants')">Book Session</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="co-expand" id="expand-lubchem">
+      <div class="ex-l">
+        <div class="ex-title">Products & Specifications</div>
+        <ul class="ex-prods">
+          <li>
+            <div class="ex-pname">RB 6020 M — Robot Reducer Grease</div>
+            <div class="ex-pdesc">High-performance grease for RV reducers in industrial robots. Thinner composition, anti-corrosion gear surface protection. Operating temp: -30~140°C. Customers: POSCO, Hyundai, Schaeffler, SKF, Toshiba.</div>
+            <div class="ex-specs"><span class="ex-spec">IATF 16949</span><span class="ex-spec">KS Certified</span><span class="ex-spec">MOQ 200</span></div>
+          </li>
+          <li>
+            <div class="ex-pname">GA 6462 MF — Gear Actuator Grease</div>
+            <div class="ex-pdesc">Precision lubricant for gear actuators and robot joints. Suitable for collaborative robots. Halal certified. HS: 3403.99.</div>
+            <div class="ex-specs"><span class="ex-spec">IATF 16949</span><span class="ex-spec">Halal</span><span class="ex-spec">MOQ 200</span></div>
+          </li>
+          <li>
+            <div class="ex-pname">BH 6551 M — Logistics Robot Lubricant</div>
+            <div class="ex-pdesc">Approved lubricant for Hyundai MobED logistics robot platform. Optimized for wheeled mobile robot drivetrains in warehouse environments.</div>
+            <div class="ex-specs"><span class="ex-spec">MobED Approved</span><span class="ex-spec">IATF 16949</span><span class="ex-spec">MOQ 200</span></div>
+          </li>
+        </ul>
+      </div>
+      <div class="ex-r">
+        <div class="ex-title">Materials</div>
+        <a class="ex-dl" href="#" onclick="return false">
+          <i data-lucide="file-text" style="width:18px;height:18px"></i>
+          <div><div class="ex-dl-name">Lubchem Product Catalogue</div><div class="ex-dl-sub">PDF — Full industrial lineup</div></div>
+          <i data-lucide="download" style="width:14px;height:14px"></i>
+        </a>
+        <button class="ex-book" onclick="openModal('Lubchem — Robot Lubricants')">Book a Session</button>
+        <button class="ex-close" onclick="toggleExpand('lubchem')"><i data-lucide="chevron-up" style="width:13px;height:13px"></i>Close</button>
+      </div>
+    </div>
+    </div>
+
+    <!-- DAEDONG -->
+    <div class="co-wrap" data-track="a" id="wrap-daedong">
+    <div class="co-card" id="card-daedong" onclick="toggleExpand('daedong')">
+      <div class="co-main">
+        <div class="co-l">
+          <div>
+            <div class="co-index">03</div>
+            <div class="co-track t-a">Robotics & Smart Factory</div>
+            <div class="co-name">Daedong Metals</div>
+            <div class="co-name-kr">대동금속주식회사</div>
+          </div>
+          <div class="co-cat">Robotics Structural Castings</div>
+        </div>
+        <div class="co-m">
+          <ul class="co-prods">
+            <li><i data-lucide="arrow-right" style="width:14px;height:14px"></i>L1 Link & Rocker Main Body for industrial & logistics robots</li>
+            <li><i data-lucide="arrow-right" style="width:14px;height:14px"></i>Ductile cast iron — high rigidity + vibration absorption</li>
+            <li><i data-lucide="arrow-right" style="width:14px;height:14px"></i>75,000 ton/yr · US customers active · MOQ 100 units</li>
+          </ul>
+        </div>
+        <div class="co-r">
+          <div>
+            <div class="co-refs-lbl">Credentials</div>
+            <div class="co-tags"><span class="co-tag">Est. 1947</span><span class="co-tag">US Export</span><span class="co-tag">OEM/ODM</span></div>
+          </div>
+          <div>
+            <div class="co-slot s-open"><span class="sdot"></span>Available</div>
+            <button class="btn-session" onclick="event.stopPropagation();openModal('Daedong Metals — Robot Cast Parts')">Book Session</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="co-expand" id="expand-daedong">
+      <div class="ex-l">
+        <div class="ex-title">Products & Specifications</div>
+        <ul class="ex-prods">
+          <li>
+            <div class="ex-pname">L1 Link — Robot Base Joint</div>
+            <div class="ex-pdesc">Core component between robot base and next joint. Simultaneously satisfies strength, stiffness, and precision requirements. Material: Ductile cast iron (CGI). HS: 7325.99. US customers active.</div>
+            <div class="ex-specs"><span class="ex-spec">Ductile Cast Iron</span><span class="ex-spec">MOQ 100–300</span><span class="ex-spec">US Customers</span></div>
+          </li>
+          <li>
+            <div class="ex-pname">Rocker Main Body — Structural Frame</div>
+            <div class="ex-pdesc">Core structural frame supporting robot load and stabilizing motion. High rigidity + excellent vibration damping performance. Nodular graphite cast iron.</div>
+            <div class="ex-specs"><span class="ex-spec">Ductile Cast Iron</span><span class="ex-spec">MOQ 100–300</span><span class="ex-spec">Vibration Damping</span></div>
+          </li>
+          <li>
+            <div class="ex-pname">Averaging Arm — Load Distribution</div>
+            <div class="ex-pdesc">Load-distributing arm for robot link mechanisms. High strength + fatigue resistance for continuous cyclic loading. Complex geometry requires cast manufacturing.</div>
+            <div class="ex-specs"><span class="ex-spec">High Fatigue Resistance</span><span class="ex-spec">MOQ 100–500</span></div>
+          </li>
+        </ul>
+      </div>
+      <div class="ex-r">
+        <div class="ex-title">Materials</div>
+        <a class="ex-dl" href="#" onclick="return false">
+          <i data-lucide="file-text" style="width:18px;height:18px"></i>
+          <div><div class="ex-dl-name">Daedong Metals Catalog</div><div class="ex-dl-sub">PDF — Product specifications</div></div>
+          <i data-lucide="download" style="width:14px;height:14px"></i>
+        </a>
+        <button class="ex-book" onclick="openModal('Daedong Metals — Robot Cast Parts')">Book a Session</button>
+        <button class="ex-close" onclick="toggleExpand('daedong')"><i data-lucide="chevron-up" style="width:13px;height:13px"></i>Close</button>
+      </div>
+    </div>
+    </div>
+
+    <!-- YONGJIN -->
+    <div class="co-wrap" data-track="a" id="wrap-yongjin">
+    <div class="co-card" id="card-yongjin" onclick="toggleExpand('yongjin')">
+      <div class="co-main">
+        <div class="co-l">
+          <div>
+            <div class="co-index">04</div>
+            <div class="co-track t-a">Robotics & Smart Factory</div>
+            <div class="co-name">Yongjin Co., Ltd.</div>
+            <div class="co-name-kr">주식회사 용진</div>
+          </div>
+          <div class="co-cat">Industrial Robot Frames</div>
+        </div>
+        <div class="co-m">
+          <ul class="co-prods">
+            <li><i data-lucide="arrow-right" style="width:14px;height:14px"></i>High-stiffness cast iron frames for heavy-duty industrial robots</li>
+            <li><i data-lucide="arrow-right" style="width:14px;height:14px"></i>Withstands heavy dynamic loads, minimizes vibration</li>
+            <li><i data-lucide="arrow-right" style="width:14px;height:14px"></i>ISO 9001 / 14001 · OEM/ODM available · MOQ 10</li>
+          </ul>
+        </div>
+        <div class="co-r">
+          <div>
+            <div class="co-refs-lbl">Key Customers</div>
+            <div class="co-tags"><span class="co-tag">HD Hyundai</span><span class="co-tag">Robotics</span></div>
+          </div>
+          <div>
+            <div class="co-slot s-open"><span class="sdot"></span>Available</div>
+            <button class="btn-session" onclick="event.stopPropagation();openModal('Yongjin — Industrial Robot Frame')">Book Session</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="co-expand" id="expand-yongjin">
+      <div class="ex-l">
+        <div class="ex-title">Products & Specifications</div>
+        <ul class="ex-prods">
+          <li>
+            <div class="ex-pname">High-Stiffness Industrial Robot Frame</div>
+            <div class="ex-pdesc">High-rigidity cast iron frame designed to withstand heavy dynamic loads and completely minimize vibration during operation. Manufactured using advanced casting processes. Category: Industrial Robot. HS: 8479.9. OEM/ODM available.</div>
+            <div class="ex-specs"><span class="ex-spec">ISO 9001</span><span class="ex-spec">ISO 14001</span><span class="ex-spec">MOQ 10</span><span class="ex-spec">OEM/ODM</span></div>
+          </li>
+        </ul>
+      </div>
+      <div class="ex-r">
+        <div class="ex-title">Materials</div>
+        <a class="ex-dl" href="#" onclick="return false">
+          <i data-lucide="file-text" style="width:18px;height:18px"></i>
+          <div><div class="ex-dl-name">Yongjin Company Profile</div><div class="ex-dl-sub">PDF — Capabilities overview</div></div>
+          <i data-lucide="download" style="width:14px;height:14px"></i>
+        </a>
+        <button class="ex-book" onclick="openModal('Yongjin — Industrial Robot Frame')">Book a Session</button>
+        <button class="ex-close" onclick="toggleExpand('yongjin')"><i data-lucide="chevron-up" style="width:13px;height:13px"></i>Close</button>
+      </div>
+    </div>
+    </div>
+
+    <!-- YEDO -->
+    <div class="co-wrap" data-track="a" id="wrap-yedo">
+    <div class="co-card" id="card-yedo" onclick="toggleExpand('yedo')">
+      <div class="co-main">
+        <div class="co-l">
+          <div>
+            <div class="co-index">05</div>
+            <div class="co-track t-a">Robotics & Smart Factory</div>
+            <div class="co-name">Yedo Automation</div>
+            <div class="co-name-kr">예도오토메이션</div>
+          </div>
+          <div class="co-cat">Press Transfer Automation</div>
+        </div>
+        <div class="co-m">
+          <ul class="co-prods">
+            <li><i data-lucide="arrow-right" style="width:14px;height:14px"></i>3D Transfer Line — X/Y/Z · 1.5–3.0s cycle · up to 30kg</li>
+            <li><i data-lucide="arrow-right" style="width:14px;height:14px"></i>Tandem & inner transfer for multi-press lines</li>
+            <li><i data-lucide="arrow-right" style="width:14px;height:14px"></i>6-axis robot press handling lines · CE-ready export</li>
+          </ul>
+        </div>
+        <div class="co-r">
+          <div>
+            <div class="co-refs-lbl">Credentials</div>
+            <div class="co-tags"><span class="co-tag">20yr Specialist</span><span class="co-tag">CE-Ready</span></div>
+          </div>
+          <div>
+            <div class="co-slot s-open"><span class="sdot"></span>Available</div>
+            <button class="btn-session" onclick="event.stopPropagation();openModal('Yedo Automation — Press Transfer')">Book Session</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="co-expand" id="expand-yedo">
+      <div class="ex-l">
+        <div class="ex-title">Products & Specifications</div>
+        <ul class="ex-prods">
+          <li>
+            <div class="ex-pname">3D/2D Transfer Line (TF Series)</div>
+            <div class="ex-pdesc">Automatic transfer for multi-process press forming. TF-30: 300mm feed, 1.5s cycle, 20kg payload. TF-150: 1,500mm feed, 3.0s cycle, 30kg. Top-drive design maximizes lower workspace. Finger/vacuum/magnetic grip options.</div>
+            <div class="ex-specs"><span class="ex-spec">3-Axis XYZ</span><span class="ex-spec">CE-Ready</span><span class="ex-spec">Multi-Grip</span></div>
+          </li>
+          <li>
+            <div class="ex-pname">Tandem Transfer Line</div>
+            <div class="ex-pdesc">Cross-press transfer with height compensation and reversing capability. Compact design minimizes press-to-press spacing. Reduces model replacement time.</div>
+            <div class="ex-specs"><span class="ex-spec">Multi-Press</span><span class="ex-spec">Reversing</span><span class="ex-spec">Compact</span></div>
+          </li>
+          <li>
+            <div class="ex-pname">Press Handling Robot Line</div>
+            <div class="ex-pdesc">6-axis robot integration on press lines. Handles complex-shape products. Automatic mold & gripper changeover.</div>
+            <div class="ex-specs"><span class="ex-spec">6-Axis Robot</span><span class="ex-spec">Auto Changeover</span></div>
+          </li>
+        </ul>
+      </div>
+      <div class="ex-r">
+        <div class="ex-title">Materials</div>
+        <a class="ex-dl" href="#" onclick="return false">
+          <i data-lucide="file-text" style="width:18px;height:18px"></i>
+          <div><div class="ex-dl-name">Yedo Automation Catalog</div><div class="ex-dl-sub">PDF — Press & FA systems</div></div>
+          <i data-lucide="download" style="width:14px;height:14px"></i>
+        </a>
+        <button class="ex-book" onclick="openModal('Yedo Automation — Press Transfer')">Book a Session</button>
+        <button class="ex-close" onclick="toggleExpand('yedo')"><i data-lucide="chevron-up" style="width:13px;height:13px"></i>Close</button>
+      </div>
+    </div>
+    </div>
+
+    <!-- LPR -->
+    <div class="co-wrap" data-track="a" id="wrap-lpr">
+    <div class="co-card" id="card-lpr" onclick="toggleExpand('lpr')">
+      <div class="co-main">
+        <div class="co-l">
+          <div>
+            <div class="co-index">06</div>
+            <div class="co-track t-a">Robotics & Smart Factory</div>
+            <div class="co-name">LPR Korea Inc.</div>
+            <div class="co-name-kr">엘피알코리아</div>
+          </div>
+          <div class="co-cat">Turnkey Automation Solutions</div>
+        </div>
+        <div class="co-m">
+          <ul class="co-prods">
+            <li><i data-lucide="arrow-right" style="width:14px;height:14px"></i>Precision connecting & driving parts for automation systems</li>
+            <li><i data-lucide="arrow-right" style="width:14px;height:14px"></i>Full turnkey: line automation, cell-based, logistics, steel mill</li>
+            <li><i data-lucide="arrow-right" style="width:14px;height:14px"></i>Korean Manufacturer Consortium · US Korea Hotlink platform</li>
+          </ul>
+        </div>
+        <div class="co-r">
+          <div>
+            <div class="co-refs-lbl">Credentials</div>
+            <div class="co-tags"><span class="co-tag">Consortium</span><span class="co-tag">Turnkey</span><span class="co-tag">Best Practice</span></div>
+          </div>
+          <div>
+            <div class="co-slot s-open"><span class="sdot"></span>Available</div>
+            <button class="btn-session" onclick="event.stopPropagation();openModal('LPR Korea — Turnkey Automation')">Book Session</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="co-expand" id="expand-lpr">
+      <div class="ex-l">
+        <div class="ex-title">Products & Specifications</div>
+        <ul class="ex-prods">
+          <li>
+            <div class="ex-pname">Equipment Connecting & Driving Parts</div>
+            <div class="ex-pdesc">Precision components for automation equipment connections and drive systems. Applications: line automation, cell-based, logistics, steel mill automation. HS: 8483.</div>
+            <div class="ex-specs"><span class="ex-spec">Precision Parts</span><span class="ex-spec">Multi-Industry</span><span class="ex-spec">OEM/ODM</span></div>
+          </li>
+          <li>
+            <div class="ex-pname">Turnkey Manufacturing Automation Solution</div>
+            <div class="ex-pdesc">LPR leads a Korean manufacturer consortium delivering complete turnkey automation solutions. Line automation, cell-based, logistics, and steel mill automation. Strategic sourcing via US Korea Hotlink platform.</div>
+            <div class="ex-specs"><span class="ex-spec">Full Turnkey</span><span class="ex-spec">Consortium Model</span><span class="ex-spec">Line & Cell</span></div>
+          </li>
+        </ul>
+      </div>
+      <div class="ex-r">
+        <div class="ex-title">Materials</div>
+        <a class="ex-dl" href="#" onclick="return false">
+          <i data-lucide="file-text" style="width:18px;height:18px"></i>
+          <div><div class="ex-dl-name">LPR Global Company Overview</div><div class="ex-dl-sub">PDF — Sourcing platform</div></div>
+          <i data-lucide="download" style="width:14px;height:14px"></i>
+        </a>
+        <button class="ex-book" onclick="openModal('LPR Korea — Turnkey Automation')">Book a Session</button>
+        <button class="ex-close" onclick="toggleExpand('lpr')"><i data-lucide="chevron-up" style="width:13px;height:13px"></i>Close</button>
+      </div>
+    </div>
+    </div>
+
+    <!-- WOWTECH -->
+    <div class="co-wrap" data-track="b" id="wrap-wowtech">
+    <div class="co-card" id="card-wowtech" onclick="toggleExpand('wowtech')">
+      <div class="co-main">
+        <div class="co-l">
+          <div>
+            <div class="co-index">07</div>
+            <div class="co-track t-b">Tier-1 Automotive</div>
+            <div class="co-name">WOWTECH Co., Ltd.</div>
+            <div class="co-name-kr">주식회사 와우텍</div>
+          </div>
+          <div class="co-cat">EV & Mobility Precision Parts</div>
+        </div>
+        <div class="co-m">
+          <ul class="co-prods">
+            <li><i data-lucide="arrow-right" style="width:14px;height:14px;color:var(--blue)"></i>IMEB Ball Screw Shaft for EV electric brake systems</li>
+            <li><i data-lucide="arrow-right" style="width:14px;height:14px;color:var(--blue)"></i>Hybrid transmission parts — Toyota/Subaru spec · VALEO</li>
+            <li><i data-lucide="arrow-right" style="width:14px;height:14px;color:var(--blue)"></i>1M+ units/yr · IATF 16949 · Hyundai SQ 2025 certified</li>
+          </ul>
+        </div>
+        <div class="co-r">
+          <div>
+            <div class="co-refs-lbl">Key Customers</div>
+            <div class="co-tags"><span class="co-tag">Toyota</span><span class="co-tag">Valeo</span><span class="co-tag">CTR</span><span class="co-tag">Tesla</span></div>
+          </div>
+          <div>
+            <div class="co-slot s-open"><span class="sdot"></span>Available</div>
+            <button class="btn-session" onclick="event.stopPropagation();openModal('WOWTECH — EV & Hybrid Parts')">Book Session</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="co-expand" id="expand-wowtech">
+      <div class="ex-l">
+        <div class="ex-title">Products & Specifications</div>
+        <ul class="ex-prods">
+          <li>
+            <div class="ex-pname">IMEB Ball Screw Shaft (EV Brake)</div>
+            <div class="ex-pdesc">High-precision ball screw shaft for EV electric brake systems. OBD control within 10 microns. Thread rolling + CNC machining. 1M+ units annually. Customer: CTR Mobility. Hyundai SQ certified 2025.</div>
+            <div class="ex-specs"><span class="ex-spec">±10μm Tolerance</span><span class="ex-spec">1M+ units/yr</span><span class="ex-spec">IATF 16949</span><span class="ex-spec">MOQ 1,000</span></div>
+          </li>
+          <li>
+            <div class="ex-pname">Plate Reinforce (Toyota/Subaru Hybrid Transmission)</div>
+            <div class="ex-pdesc">Key component for strong hybrid transmission systems. Hot forging → CNC → MCT → Heat treatment integrated process. Customer: VALEO.</div>
+            <div class="ex-specs"><span class="ex-spec">Hot Forging + MCT</span><span class="ex-spec">Toyota/Subaru Spec</span><span class="ex-spec">MOQ 1,000</span></div>
+          </li>
+          <li>
+            <div class="ex-pname">WAD Screw / WAD Nut</div>
+            <div class="ex-pdesc">Complex droplet-shaped nut. Bar stock to finished part in one step. Advanced heat treatment distortion control. Customer: Pyunghwa Valeo.</div>
+            <div class="ex-specs"><span class="ex-spec">Bar to Finish</span><span class="ex-spec">Complex Geometry</span><span class="ex-spec">MOQ 1,000</span></div>
+          </li>
+        </ul>
+      </div>
+      <div class="ex-r">
+        <div class="ex-title">Materials</div>
+        <a class="ex-dl" href="#" onclick="return false">
+          <i data-lucide="file-text" style="width:18px;height:18px"></i>
+          <div><div class="ex-dl-name">WOWTECH Company Profile</div><div class="ex-dl-sub">PDF — EV & hybrid parts</div></div>
+          <i data-lucide="download" style="width:14px;height:14px"></i>
+        </a>
+        <button class="ex-book" onclick="openModal('WOWTECH — EV & Hybrid Parts')">Book a Session</button>
+        <button class="ex-close" onclick="toggleExpand('wowtech')"><i data-lucide="chevron-up" style="width:13px;height:13px"></i>Close</button>
+      </div>
+    </div>
+    </div>
+
+    <!-- JEONWOO -->
+    <div class="co-wrap" data-track="b" id="wrap-jeonwoo">
+    <div class="co-card" id="card-jeonwoo" onclick="toggleExpand('jeonwoo')">
+      <div class="co-main">
+        <div class="co-l">
+          <div>
+            <div class="co-index">08</div>
+            <div class="co-track t-b">Tier-1 Automotive</div>
+            <div class="co-name">Jeonwoo Precision</div>
+            <div class="co-name-kr">주식회사 전우정밀</div>
+          </div>
+          <div class="co-cat">Precision Deep Drawing</div>
+        </div>
+        <div class="co-m">
+          <ul class="co-prods">
+            <li><i data-lucide="arrow-right" style="width:14px;height:14px;color:var(--blue)"></i>Motor cases for automotive seat & wiper systems</li>
+            <li><i data-lucide="arrow-right" style="width:14px;height:14px;color:var(--blue)"></i>Airbag inflator housings · door strikers · heater brackets</li>
+            <li><i data-lucide="arrow-right" style="width:14px;height:14px;color:var(--blue)"></i>IATF 16949 · ISO 14001 · 2018 World Class 300</li>
+          </ul>
+        </div>
+        <div class="co-r">
+          <div>
+            <div class="co-refs-lbl">Key Customers</div>
+            <div class="co-tags"><span class="co-tag">MAGNA</span><span class="co-tag">SL</span><span class="co-tag">KDS</span><span class="co-tag">AT&S</span></div>
+          </div>
+          <div>
+            <div class="co-slot s-open"><span class="sdot"></span>Available</div>
+            <button class="btn-session" onclick="event.stopPropagation();openModal('Jeonwoo Precision — Deep Drawing')">Book Session</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="co-expand" id="expand-jeonwoo">
+      <div class="ex-l">
+        <div class="ex-title">Products & Specifications</div>
+        <ul class="ex-prods">
+          <li>
+            <div class="ex-pname">Motor Case (Automotive & Robotics)</div>
+            <div class="ex-pdesc">Precision deep-drawn component for automotive seat & wiper motors. High durability, dimensional accuracy. Applicable to robotics actuators. Customers: SL, KDS.</div>
+            <div class="ex-specs"><span class="ex-spec">IATF 16949</span><span class="ex-spec">ISO 14001</span><span class="ex-spec">Deep Drawing</span></div>
+          </li>
+          <li>
+            <div class="ex-pname">Airbag Inflator Housing</div>
+            <div class="ex-pdesc">Precision deep-drawn housing for airbag inflators. High-pressure resistance and structural integrity. Customer: AT&S.</div>
+            <div class="ex-specs"><span class="ex-spec">IATF 16949</span><span class="ex-spec">High-Pressure</span><span class="ex-spec">Safety-Critical</span></div>
+          </li>
+          <li>
+            <div class="ex-pname">Door Striker · Heater Bracket</div>
+            <div class="ex-pdesc">Press forming & surface treatment safety components. Customers: SL, KDS, MAGNA. 2018 World Class 300 company.</div>
+            <div class="ex-specs"><span class="ex-spec">IATF 16949</span><span class="ex-spec">MAGNA Approved</span><span class="ex-spec">World Class 300</span></div>
+          </li>
+        </ul>
+      </div>
+      <div class="ex-r">
+        <div class="ex-title">Materials</div>
+        <a class="ex-dl" href="#" onclick="return false">
+          <i data-lucide="file-text" style="width:18px;height:18px"></i>
+          <div><div class="ex-dl-name">Jeonwoo Precision Catalog</div><div class="ex-dl-sub">PDF — Deep drawing specialist</div></div>
+          <i data-lucide="download" style="width:14px;height:14px"></i>
+        </a>
+        <button class="ex-book" onclick="openModal('Jeonwoo Precision — Deep Drawing')">Book a Session</button>
+        <button class="ex-close" onclick="toggleExpand('jeonwoo')"><i data-lucide="chevron-up" style="width:13px;height:13px"></i>Close</button>
+      </div>
+    </div>
+    </div>
+
+    <!-- CANLAB -->
+    <div class="co-wrap" data-track="c" id="wrap-canlab">
+    <div class="co-card" id="card-canlab" onclick="toggleExpand('canlab')">
+      <div class="co-main">
+        <div class="co-l">
+          <div>
+            <div class="co-index">09</div>
+            <div class="co-track t-c">Defense & Sensing</div>
+            <div class="co-name">CANLAB Co., Ltd.</div>
+            <div class="co-name-kr">주식회사 캔랩</div>
+          </div>
+          <div class="co-cat">AI Vision · Drone Sensing</div>
+        </div>
+        <div class="co-m">
+          <ul class="co-prods">
+            <li><i data-lucide="arrow-right" style="width:14px;height:14px;color:var(--blue)"></i>EOIR FPV — thermal + daylight in single payload</li>
+            <li><i data-lucide="arrow-right" style="width:14px;height:14px;color:var(--blue)"></i>AISEN-TI: 640×480 VGA · ≤50mK · MIPI/USB/GMSL</li>
+            <li><i data-lucide="arrow-right" style="width:14px;height:14px;color:var(--blue)"></i>ODM 3–6 week lead time · IATF 16949 · Series A $5M</li>
+          </ul>
+        </div>
+        <div class="co-r">
+          <div>
+            <div class="co-refs-lbl">Key Customers</div>
+            <div class="co-tags"><span class="co-tag">LIG Nex1</span><span class="co-tag">Hanwha</span><span class="co-tag">Hyundai</span></div>
+          </div>
+          <div>
+            <div class="co-slot s-open"><span class="sdot"></span>Available</div>
+            <button class="btn-session" onclick="event.stopPropagation();openModal('CANLAB — Drone Cameras')">Book Session</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="co-expand" id="expand-canlab">
+      <div class="ex-l">
+        <div class="ex-title">Products & Specifications</div>
+        <ul class="ex-prods">
+          <li>
+            <div class="ex-pname">EOIR FPV Camera — AISEN-HY FPV</div>
+            <div class="ex-pdesc">VGA thermal + VGA daylight camera in single lightweight payload. Replaces two separate sensors. Deployed by Ubify, NearSlab, Pablo Air. ODM: FOV, interface, housing customizable. HS: 8525.89.</div>
+            <div class="ex-specs"><span class="ex-spec">VGA Thermal + Daylight</span><span class="ex-spec">Single Payload</span><span class="ex-spec">ODM Available</span><span class="ex-spec">MOQ 1,000</span></div>
+          </li>
+          <li>
+            <div class="ex-pname">Thermal Camera — AISEN-TI</div>
+            <div class="ex-pdesc">Uncooled LWIR based on Lynred ATTO640. 640×480 VGA, ≤50mK, 30/60Hz. FOV 17°~95°. Interfaces: USB, Ethernet, GMSL, MIPI. Clients: LIG Nex1, Hanwha Systems. Sample lead time: 3–6 weeks.</div>
+            <div class="ex-specs"><span class="ex-spec">640×480 VGA</span><span class="ex-spec">≤50mK</span><span class="ex-spec">All Interfaces</span><span class="ex-spec">MOQ 1,000</span></div>
+          </li>
+        </ul>
+      </div>
+      <div class="ex-r">
+        <div class="ex-title">Materials</div>
+        <a class="ex-dl" href="#" onclick="return false">
+          <i data-lucide="file-text" style="width:18px;height:18px"></i>
+          <div><div class="ex-dl-name">CANLAB Profile ENG</div><div class="ex-dl-sub">PDF — Drone optical sensors</div></div>
+          <i data-lucide="download" style="width:14px;height:14px"></i>
+        </a>
+        <button class="ex-book" onclick="openModal('CANLAB — Drone Cameras')">Book a Session</button>
+        <button class="ex-close" onclick="toggleExpand('canlab')"><i data-lucide="chevron-up" style="width:13px;height:13px"></i>Close</button>
+      </div>
+    </div>
+    </div>
+
+    <!-- RFON -->
+    <div class="co-wrap" data-track="c" id="wrap-rfon">
+    <div class="co-card" id="card-rfon" onclick="toggleExpand('rfon')">
+      <div class="co-main">
+        <div class="co-l">
+          <div>
+            <div class="co-index">10</div>
+            <div class="co-track t-c">Defense & Sensing</div>
+            <div class="co-name">RFON Co., Ltd.</div>
+            <div class="co-name-kr">알에프온</div>
+          </div>
+          <div class="co-cat">Counter-UAS · Defense Electronics</div>
+        </div>
+        <div class="co-m">
+          <ul class="co-prods">
+            <li><i data-lucide="arrow-right" style="width:14px;height:14px;color:var(--blue)"></i>GaN 6-Band 1-Pack HPA — 6 modules into 1 unit</li>
+            <li><i data-lucide="arrow-right" style="width:14px;height:14px;color:var(--blue)"></i>Directional drone jamming — 5km range · IP65</li>
+            <li><i data-lucide="arrow-right" style="width:14px;height:14px;color:var(--blue)"></i>MIL-STD-810E / 461G · All GNSS + ISM bands</li>
+          </ul>
+        </div>
+        <div class="co-r">
+          <div>
+            <div class="co-refs-lbl">Export Markets</div>
+            <div class="co-tags"><span class="co-tag">India</span><span class="co-tag">Israel</span><span class="co-tag">Europe</span></div>
+          </div>
+          <div>
+            <div class="co-slot s-open"><span class="sdot"></span>Available</div>
+            <button class="btn-session" onclick="event.stopPropagation();openModal('RFON — Counter-UAS Systems')">Book Session</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="co-expand" id="expand-rfon">
+      <div class="ex-l">
+        <div class="ex-title">Products & Specifications</div>
+        <ul class="ex-prods">
+          <li>
+            <div class="ex-pname">GaN 6-Band 1-Pack HPA</div>
+            <div class="ex-pdesc">6 conventional jamming modules integrated into 1 compact unit. GaN TR Technology. Significantly reduced volume & weight. Low heat generation. Compatible with drone, vehicle, and portable platforms. Export customers: India, Israel, Europe.</div>
+            <div class="ex-specs"><span class="ex-spec">GaN TR Tech</span><span class="ex-spec">6-Band 1-Pack</span><span class="ex-spec">Ultra-Compact</span><span class="ex-spec">IP65</span></div>
+          </li>
+          <li>
+            <div class="ex-pname">Directional Drone Jamming System</div>
+            <div class="ex-pdesc">ISM 433/900MHz, 2.4/5.8GHz, GNSS L1/L2/L5. Jamming range: up to 5km. Lightweight with high-efficiency antenna. Adjustable output power per frequency band. MIL-STD-810E, MIL-STD-461G compliant. IP65 rated.</div>
+            <div class="ex-specs"><span class="ex-spec">5km Range</span><span class="ex-spec">6-Band</span><span class="ex-spec">MIL-STD-810E</span><span class="ex-spec">IP65</span></div>
+          </li>
+        </ul>
+      </div>
+      <div class="ex-r">
+        <div class="ex-title">Materials</div>
+        <a class="ex-dl" href="#" onclick="return false">
+          <i data-lucide="file-text" style="width:18px;height:18px"></i>
+          <div><div class="ex-dl-name">RFON Product Catalog</div><div class="ex-dl-sub">PDF — C-UAS systems</div></div>
+          <i data-lucide="download" style="width:14px;height:14px"></i>
+        </a>
+        <button class="ex-book" onclick="openModal('RFON — Counter-UAS Systems')">Book a Session</button>
+        <button class="ex-close" onclick="toggleExpand('rfon')"><i data-lucide="chevron-up" style="width:13px;height:13px"></i>Close</button>
+      </div>
+    </div>
+    </div>
+
+  </div><!-- /co-grid -->
+</div><!-- /section -->
+
+<!-- PARTNERS FOOTER -->
+<div style="padding:0 22px">
+<div style="max-width:1200px;margin:0 auto;padding:56px 0 64px;border-top:1px solid var(--gray3)">
+  <div style="font-size:12px;font-weight:600;color:var(--gray2);letter-spacing:.06em;text-transform:uppercase;margin-bottom:32px;text-align:center">Organized & Supported by</div>
+  <div style="display:flex;align-items:center;justify-content:center;gap:48px;flex-wrap:wrap">
+    <!-- KITA -->
+    <div style="display:flex;flex-direction:column;align-items:center;gap:10px">
+      <div style="width:120px;height:56px;background:var(--white);border:1px solid var(--gray3);border-radius:10px;display:flex;align-items:center;justify-content:center">
+        <span style="font-size:13px;font-weight:700;color:var(--gray1);letter-spacing:.02em">KITA</span>
+      </div>
+      <span style="font-size:11px;color:var(--gray2);text-align:center">한국무역협회</span>
+    </div>
+    <!-- 대구경북 -->
+    <div style="display:flex;flex-direction:column;align-items:center;gap:10px">
+      <div style="width:120px;height:56px;background:var(--white);border:1px solid var(--gray3);border-radius:10px;display:flex;align-items:center;justify-content:center">
+        <span style="font-size:11px;font-weight:700;color:var(--gray1);letter-spacing:.01em;text-align:center;line-height:1.4">대구광역시<br>경상북도</span>
+      </div>
+      <span style="font-size:11px;color:var(--gray2);text-align:center">Daegu · Gyeongbuk</span>
+    </div>
+    <!-- 로고 슬롯 3 -->
+    <div style="display:flex;flex-direction:column;align-items:center;gap:10px">
+      <div style="width:120px;height:56px;background:var(--white);border:1.5px dashed var(--gray3);border-radius:10px;display:flex;align-items:center;justify-content:center">
+        <span style="font-size:11px;color:var(--gray3)">Logo</span>
+      </div>
+      <span style="font-size:11px;color:var(--gray3);text-align:center">Partner</span>
+    </div>
+    <!-- 로고 슬롯 4 -->
+    <div style="display:flex;flex-direction:column;align-items:center;gap:10px">
+      <div style="width:120px;height:56px;background:var(--white);border:1.5px dashed var(--gray3);border-radius:10px;display:flex;align-items:center;justify-content:center">
+        <span style="font-size:11px;color:var(--gray3)">Logo</span>
+      </div>
+      <span style="font-size:11px;color:var(--gray3);text-align:center">Partner</span>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- MODAL -->
+<div class="overlay" id="overlay">
+  <div class="modal">
+    <div id="mform">
+      <div class="modal-hd">
+        <div>
+          <div class="m-ttl" id="m-ttl">Book a Session</div>
+          <div class="m-sub">San Francisco · June 25 · Confirmed within 48hrs</div>
+        </div>
+        <button class="m-x" onclick="closeModal()"><i data-lucide="x" style="width:15px;height:15px"></i></button>
+      </div>
+      <div class="modal-bd">
+        <div class="f-row">
+          <div class="fg"><label class="fl">First Name</label><input class="fi" id="f1" placeholder="John"></div>
+          <div class="fg"><label class="fl">Last Name</label><input class="fi" id="f2" placeholder="Smith"></div>
+        </div>
+        <div class="fg"><label class="fl">Company</label><input class="fi" id="f3" placeholder="Your company"></div>
+        <div class="fg"><label class="fl">Title</label><input class="fi" id="f4" placeholder="Automation Engineer, Procurement Manager…"></div>
+        <div class="fg"><label class="fl">Work Email</label><input class="fi" type="email" id="f5" placeholder="you@company.com"></div>
+        <div class="fg">
+          <label class="fl">Company of Interest</label>
+          <select class="fs" id="f6">
+            <option value="">Select…</option>
+            <option>UND Co. — Wireless Tool Changer</option>
+            <option>Lubchem — Robot Lubricants</option>
+            <option>Daedong Metals — Robot Cast Parts</option>
+            <option>Yongjin — Industrial Robot Frames</option>
+            <option>Yedo Automation — Press Transfer</option>
+            <option>LPR Korea — Turnkey Automation</option>
+            <option>WOWTECH — EV & Hybrid Parts</option>
+            <option>Jeonwoo Precision — Deep Drawing</option>
+            <option>CANLAB — Drone Cameras</option>
+            <option>RFON — Counter-UAS Systems</option>
+            <option>Multiple companies</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label class="fl">Preferred Time Slot</label>
+          <select class="fs" id="f7">
+            <option value="">Select a time…</option>
+            <option>Round 1 — 9:30 AM</option>
+            <option>Round 2 — 10:10 AM</option>
+            <option>Round 3 — 10:50 AM</option>
+            <option>Round 4 — 11:30 AM</option>
+            <option>Round 5 — 1:30 PM</option>
+            <option>Round 6 — 2:10 PM</option>
+            <option>Round 7 — 2:50 PM</option>
+            <option>No preference</option>
+          </select>
+        </div>
+        <button class="btn-submit" onclick="submitForm()">Submit</button>
+      </div>
+    </div>
+    <div class="modal-ok" id="mok">
+      <div class="ok-ico"><i data-lucide="check" style="width:22px;height:22px"></i></div>
+      <div class="ok-ttl">Request Received</div>
+      <div class="ok-sub">We'll reach out to <span class="ok-em" id="ok-em"></span> within 48 hours with your confirmed slot and company briefing materials.</div>
+    </div>
+  </div>
+</div>
+
+<script>
+lucide.createIcons();
+function openModal(co){
+  document.getElementById('m-ttl').textContent=co?co.split('—')[0].trim():'Book a Session';
+  if(co){const s=document.getElementById('f6');for(let i=0;i<s.options.length;i++){if(s.options[i].text.includes(co.split('—')[0].trim().split(' ')[0])){s.selectedIndex=i;break;}}}
+  document.getElementById('mform').style.display='block';
+  document.getElementById('mok').style.display='none';
+  document.getElementById('overlay').classList.add('active');
+}
+function closeModal(){document.getElementById('overlay').classList.remove('active');}
+function submitForm(){
+  const v=id=>document.getElementById(id).value.trim();
+  if(!v('f1')||!v('f3')||!v('f5')){alert('Please fill in name, company, and email.');return;}
+  document.getElementById('ok-em').textContent=v('f5');
+  document.getElementById('mform').style.display='none';
+  document.getElementById('mok').style.display='block';
+  const s=encodeURIComponent('[KMEX 2026 SF] Session Request — '+(v('f6')||'Multiple'));
+  const t=document.getElementById('f7').value;
+const b=encodeURIComponent(`Name: ${v('f1')} ${v('f2')}\nCompany: ${v('f3')}\nTitle: ${v('f4')}\nEmail: ${v('f5')}\nInterest: ${v('f6')}\nPreferred Time: ${t||'No preference'}`);
+  setTimeout(()=>{window.location.href=`mailto:doyoon.kim@cncare.co.kr?subject=${s}&body=${b}`;},900);
+}
+function toggleExpand(key){
+  const panel=document.getElementById('expand-'+key);
+  const card=document.getElementById('card-'+key);
+  const isOpen=panel.classList.contains('open');
+  document.querySelectorAll('.co-expand').forEach(p=>p.classList.remove('open'));
+  document.querySelectorAll('.co-card').forEach(c=>{c.style.borderRadius='';c.style.boxShadow='';});
+  if(!isOpen){
+    panel.classList.add('open');
+    card.style.borderRadius='18px 18px 0 0';
+    lucide.createIcons();
+    setTimeout(()=>card.scrollIntoView({behavior:'smooth',block:'start'}),50);
+  }
+}
+function doFilter(t,btn){
+  document.querySelectorAll('.pill').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.co-wrap').forEach(w=>{
+    w.style.display=(t==='all'||w.dataset.track===t)?'':'none';
+  });
+  document.querySelectorAll('.co-expand').forEach(p=>p.classList.remove('open'));
+  document.querySelectorAll('.co-card').forEach(c=>c.style.borderRadius='');
+}
+document.getElementById('overlay').addEventListener('click',e=>{if(e.target.id==='overlay')closeModal();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+</script>
+</body>
+</html>
