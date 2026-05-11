@@ -1160,7 +1160,7 @@ function submitForm(){
   const s=encodeURIComponent('[KMEX 2026 SF] Session Request — '+(v('f6')||'Multiple'));
   const t=document.getElementById('f7').value;
 const b=encodeURIComponent(`Name: ${v('f1')} ${v('f2')}\nCompany: ${v('f3')}\nTitle: ${v('f4')}\nEmail: ${v('f5')}\nInterest: ${v('f6')}\nPreferred Time: ${t||'No preference'}`);
-  setTimeout(()=>{window.location.href=`mailto:doyoon.kim@cncare.co.kr?subject=${s}&body=${b}`;},900);
+  setTimeout(()=>{window.location.href=`mailto:doyoon.kim@cncare.co.kr?cc=doojin.kwon@cncare.co.kr&subject=${s}&body=${b}`;},900);
 }
 function toggleExpand(key){
   const panel=document.getElementById('expand-'+key);
